@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "views/*": [
+                "src/js/views/*"
+            ],
+            "hoc/*": [
+                "src/js/hoc/*"
+            ],
+            "constants/*": [
+                "src/js/constants/*"
+            ],
+            "utils/*": [
+                "src/js/utils/*"
+            ],
+            "components/*": [
+                "src/js/components/*"
+            ],
+            "services/*": [
+                "src/js/services/*"
+            ]
+        },
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react"
+    }
+}
