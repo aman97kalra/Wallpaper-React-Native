@@ -46,7 +46,7 @@ const styles = StyleSheet.create( {
 		padding: 20,
 	},
 	text: {
-		fontSize: 22,
+		fontSize: 20,
 		padding: 10,
 		margin: 5
 	},

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, SafeAreaView,  Image, Dimensions, StyleSheet, TouchableOpacity, Platform, Alert } from 'react-native';
-import {  PERMISSIONS, RESULTS, request } from 'react-native-permissions';
+import {  PERMISSIONS, RESULTS, request, requestMultiple } from 'react-native-permissions';
 import RNFS from 'react-native-fs';
 import CameraRoll from '@react-native-community/cameraroll';
 import WallPaperManager from 'react-native-wallpaper-manager';
@@ -18,7 +18,7 @@ export class FullScreenImageView extends Component {
     requestPermission( image ) {
         
         console.log( 'Requesting Permission for camera and storage' );
-        request( 'android' === Platform.OS ? [ PERMISSIONS.ANDROID.CAMERA, PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE ]:[ PERMISSIONS.IOS.CAMERA ] )
+        requestMultiple( 'android' === Platform.OS ? [ PERMISSIONS.ANDROID.CAMERA, PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE ]:[ PERMISSIONS.IOS.CAMERA ] )
             .then( ( result ) => {
                 switch ( result ) {
                 case RESULTS.UNAVAILABLE:
@@ -130,7 +130,7 @@ export class FullScreenImageView extends Component {
                     />
                 </View>
                 <View style={{ flexDirection: 'row', paddingBottom: 0, justifyContent: 'space-around'}}>
-                <TouchableOpacity style={ styles.button } activeOpacity = {0.4} onPress = { () => this.tryingNavigation( image ) }>
+                <TouchableOpacity style={ styles.button } activeOpacity = {0.4} onPress = { () => this.requestPermission( image ) }>
                         <MaterialCommunityIcons name="cloud-download" size={36} color={'black'}/>
                         <Text style={{color: 'black'}} > Save to Gallery</Text>
                 </TouchableOpacity>

@@ -28,7 +28,7 @@ export class SearchWallpaper extends Component {
         console.log( 'query word is', query );
         console.log( this.props );
         if( ''!==this.state.search || !isUndefined( param ) ) {
-            const url = `https://api.unsplash.com/search/photos?query=${query}&count=30&client_id=896979fdb70f80865638d7a4648bf9ce309675335318933eab2bf990af42e295`;
+            const url = `https://api.unsplash.com/search/photos?query=${query}&count=10&client_id=896979fdb70f80865638d7a4648bf9ce309675335318933eab2bf990af42e295`;
             axios.get( url ).then( ( response ) => {
                 console.log( 'Search Request Completed', response.data.results );
                 this.setState( {
@@ -129,6 +129,6 @@ const styles = StyleSheet.create( {
         backgroundColor: '#2196F3',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 20
+        margin: 15
     }
 } );
